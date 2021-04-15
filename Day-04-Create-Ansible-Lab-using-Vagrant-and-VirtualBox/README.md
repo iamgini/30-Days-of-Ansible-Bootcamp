@@ -36,3 +36,5 @@ $ vagrant ssh ansible-engine
 ## no need to destroy as you can use the same lab on next day for practicing.
 $ vagrant halt
 ```
+
+[Ansible Full Course – YouTube Playlist](https://youtu.be/K4wGqwS2RLw?list=PLH5uDiXcw8tSW9Y6FsVsSQJQ88tMPBsbK)

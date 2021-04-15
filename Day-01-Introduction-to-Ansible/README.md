@@ -1,9 +1,7 @@
 ## Introduction to Ansible
 
-[![](http://img.youtube.com/vi/K4wGqwS2RLw/0.jpg)](http://www.youtube.com/watch?v=K4wGqwS2RLw "")
+[Ansible Full Course – YouTube Playlist](https://youtu.be/K4wGqwS2RLw?list=PLH5uDiXcw8tSW9Y6FsVsSQJQ88tMPBsbK)
 
-## Before you Configure a Lab
+[Ansible Introduction](https://www.youtube.com/watch?list=PLH5uDiXcw8tSW9Y6FsVsSQJQ88tMPBsbK&v=K4wGqwS2RLw)
 
-(Stay Tuned)
-
-**[YouTube](https://www.youtube.com/techbeatly)**
+[Ansible Full Course – YouTube Playlist](https://youtu.be/K4wGqwS2RLw?list=PLH5uDiXcw8tSW9Y6FsVsSQJQ88tMPBsbK)

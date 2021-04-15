@@ -35,3 +35,5 @@ $ sudo apt-get install ansible
 ## If CentOS, configure EPEL repo (Extra Packages for Enterprise Linux)
 sudo yum -y install epel-release
 ```
+
+[Ansible Full Course – YouTube Playlist](https://youtu.be/K4wGqwS2RLw?list=PLH5uDiXcw8tSW9Y6FsVsSQJQ88tMPBsbK)
