@@ -28,6 +28,6 @@ $ vagrant ssh
 $ vagrant destroy
 ```
 
-*Note: We have read-to-use `Vagrantfile` for setting up the Ansible Lab, so do not need to worry on this configurations.*
+*Note: We have ready-to-use `Vagrantfile` for setting up the Ansible Lab, so do not need to worry on this configurations.*
 
 [Ansible Full Course – YouTube Playlist](https://youtu.be/K4wGqwS2RLw?list=PLH5uDiXcw8tSW9Y6FsVsSQJQ88tMPBsbK)
