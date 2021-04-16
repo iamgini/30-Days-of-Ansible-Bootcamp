@@ -1,22 +1,28 @@
 ## Work in Progress
 
 **YAML format**
+
 - Start with `---` (3 consecutive hyphens)  end with `...` (optional)
-- A list– begin with dash followed by space
+- A list `-` begin with dash followed by space
 - attribute definition
-- attribute1: value1
-- attribute2: value2
-- Comments are preceded by #
+```yaml
+attribute1: value1
+attribute2: value2
+```
+- Comments are preceded by `#`
 - Warning: DO NOT use TAB! (unless you configured tab expand)
 - Multiple Lines:
-- address: |
--              1, Jalan 2,
--              Main Block,
--              89892 Abc, My.
-- my_note: >
-             This is a single
-             line of text.
 
+```yaml
+address: |
+            1, Jalan 2,
+            Main Block,
+            89892 Abc, My.
+
+my_note: >
+            This is a single
+            line of text.
+```
 
 A playbooks starts with `---` and with minimal entris about the play.
 
