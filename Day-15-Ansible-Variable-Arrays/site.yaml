@@ -3,9 +3,8 @@
   hosts: nodes
   become: true
   vars_files:
-    - vars2.yaml 
+    - user_list.yaml 
   tasks:
     - name: Show users
       debug:
-        msg: "{{ item.value }}"
-      with_items: "{{ users }}"
+        msg: "{{ users }}"
