@@ -1,0 +1,11 @@
+users:
+  john:
+    firstname: John
+    lastname: Smit
+    designation: Admin
+    location: London
+  lind:
+    firstname: Linda
+    lastname: Marry
+    designation: Operator
+    location: NewYork
