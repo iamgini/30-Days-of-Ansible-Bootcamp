@@ -7,7 +7,7 @@ My intension is to cover end-to-end topic for Ansible and enable the user to sta
 
 [Ansible Full Course – YouTube Playlist](https://youtu.be/K4wGqwS2RLw?list=PLH5uDiXcw8tSW9Y6FsVsSQJQ88tMPBsbK)
 
-![30-days-of-ansible](ansible-videos.png)
+[![30-days-of-ansible](ansible-videos.png)](https://youtu.be/K4wGqwS2RLw?list=PLH5uDiXcw8tSW9Y6FsVsSQJQ88tMPBsbK)
 
 
 Subscribe to **[techbeatly YouTube Channel](https://www.youtube.com/techbeatly)**.
