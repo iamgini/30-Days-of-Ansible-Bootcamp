@@ -1,0 +1,10 @@
+---
+- name: Ansible Fact Demo
+  hosts: nodes
+  gather_facts: false
+  tasks:
+    - name: collect facts
+      setup:
+    - name: Show details
+      debug:
+        msg: "{{ ansible_distribution }} {{ ansible_hostname }} {{ ansible_default_ipv4['address'] }}"
