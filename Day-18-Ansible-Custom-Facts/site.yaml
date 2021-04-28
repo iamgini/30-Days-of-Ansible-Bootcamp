@@ -1,0 +1,9 @@
+---
+- name: Test Custom Facts
+  hosts: nodes
+  tasks:
+    - name: Get Web details
+      debug:
+        msg: "{{ ansible_local.web.web_details.web_port }}"
+      when: ansible_local.web.business.criticality is defined
+      
