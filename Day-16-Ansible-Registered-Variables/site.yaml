@@ -1,0 +1,20 @@
+---
+- name: Install Web Package
+  hosts: nodes
+  become: true
+  tasks:
+    - name: Install nginx
+      yum:
+        name: nginx
+        state: latest
+      register: yum_output
+      ignore_errors: yes
+
+    - name: Print the output
+      debug:
+        msg: "{{ yum_output }}"
+
+    - name: Print if Failed
+      debug:
+        msg: "Package Failed To Install"
+      when: yum_output.failed == true
