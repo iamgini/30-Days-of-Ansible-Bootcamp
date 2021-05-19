@@ -1,0 +1,42 @@
+NewCompany:
+  Country:
+    states:
+      - employee:
+          Internal_1:
+            payroll_emp:
+              id: 2000
+
+Company:
+  Country:
+    states:
+      - employee:
+          Internal_1:
+            payroll_emp:
+              key_1: val_1
+              key_2: val_2
+              id: 1000
+            CWF:
+              on-shore:
+                key_1: val_1
+                key_2: val_2
+                id: 1001
+          Internal_2:
+            payroll_emp:
+              key_1: val_1
+              key_2: val_2
+              id: 1000
+            CWF:
+              on-shore:
+                key_1: val_1
+                key_2: val_2
+                id: 1001
+          Internal_3:
+            payroll_emp:
+              key_1: val_1
+              key_2: val_2
+              id: 1000
+            CWF:
+              on-shore:
+                key_1: val_1
+                key_2: val_2
+                id: 1001
