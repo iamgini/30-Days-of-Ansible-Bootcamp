@@ -1,11 +1,3 @@
-NewCompany:
-  Country:
-    states:
-      - employee:
-          Internal_1:
-            payroll_emp:
-              id: 2000
-
 Company:
   Country:
     states:
