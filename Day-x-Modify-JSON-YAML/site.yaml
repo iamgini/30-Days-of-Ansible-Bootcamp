@@ -13,16 +13,43 @@
     
     - name: Print Data 2
       debug:
-        msg: "{{ Company['Country']['states'][0]['employee'][item]['payroll_emp']['id'] }}" 
+        #msg: "{{ Company['Country']['states'][0]['employee'][] }}"
+        #msg: "{{ item }}" #"hello" #
+        msg: "{{ Company['Country']['states'][0]['employee'][item]['payroll_emp']['id'] }}" #"hello" #
+      #with_items: "{{ Company['Country']['states'][0]['employee'] | to_json  }}"
       with_items: "{{ Company | json_query('Country.states[0].employee')  }}"
 
     - name: Set Data
       set_fact:
-  
+        #msg: "{{ Company['Country']['states'][0]['employee'][] }}"
+        #msg: "{{ item }}" #"hello" #
+        #Company['Country']['states'][0]['employee'][{{ item }}]['payroll_emp']['id']: 2000
+        #Company['Country']['states'][0]['employee']['Internal_1']['payroll_emp']['id']: 2000
+      
+        #Company: "{{ Company | combine( { Country:{ states:[{employee: {Internal_1: {payroll_emp: {id: 1000}}}}]}}, recursive=True ) }}"
         Company: "{{ Company | combine( {'Country':{'states':[{'employee':{'Internal_1':{'payroll_emp':{'id':3000}}}}]}}, recursive=True, list_merge='append_rp' ) }}"
-
+       
+        #animals: "{{ animals|combine({'birds': {'cardinals': {'feathers': 'red'}}}, recursive=True) }}"
+        #Company: "{{ Company | combine( NewCompany, recursive=True) }}"
+        #Company: "{{ Company | combine( { CountryNewCountry: 1000 }, recursive=True ) }}"
+        #{"Country":{"states":[{"employee":{"Internal_1":{"payroll_emp":{"id":1000}}}}]}}
+      #with_items: "{{ Company['Country']['states'][0]['employee'] | to_json  }}"
+      #with_items: "{{ Company | json_query('Country.states[0].employee')  }}"
 
     - name: Print Data
       debug:
         msg: "{{ Company }}"
       #when: a is defined
+
+    # - name: replace id for payroll_emp
+    #   replace:
+    #     path: sample_file.yml
+    #     regexp: 'id:.*'
+    #     replace: 'id: 2000'
+    #     after: 'payroll_emp:.*'
+
+    #- name: replace id for payroll_emp
+    #  replace:
+    #    path: sample_file.yml
+    #    regexp: 'id:.*'
+    #    replace: 'id: 2000
