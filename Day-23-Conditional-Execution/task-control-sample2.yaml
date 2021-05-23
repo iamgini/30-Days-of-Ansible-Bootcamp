@@ -1,0 +1,20 @@
+---
+- name: Task Control based on String Value
+  hosts: localhost
+  gather_facts: false
+  vars:
+    ftp_word: " FTP "
+    sftp_word: " SFTP "
+    comment: "Install SFTP Server"
+  tasks:
+    - name: Ensure FTP Installed
+      debug:
+        msg: "Installing FTP Server....."
+      when: (ftp_word in comment) or (ftp_word | lower in comment)
+
+    - name: Ensure SFTP Installed
+      debug:
+        msg: "Installing SFTP Server....."
+      when: (sftp_word in comment) or (sftp_word | lower in comment)
+
+
