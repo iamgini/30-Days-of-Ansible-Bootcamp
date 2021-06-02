@@ -1,0 +1,12 @@
+- name: Package Installation
+  hosts: nodes
+  become: yes
+  tasks:
+    - name: Install wrong package
+      yum:
+        name: wrongpackage
+        state: present
+
+    - name: Message
+      debug:
+        msg: "Package Done"
