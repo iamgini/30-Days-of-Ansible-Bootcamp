@@ -1,0 +1,29 @@
+- name: Package Installation
+  hosts: nodes
+  become: yes
+  tasks:
+    - name: Install wrong package
+      yum:
+        name: wrongpackage
+        state: present
+      ignore_errors: yes
+      register: error_message
+
+    - name: Display
+      debug:  
+        msg: "{{ error_message }}"
+
+    - name: Fail if there is failed status
+      fail:
+        msg: "The state is failed"
+      when: error_message.failed == True
+      
+
+    - name: Install good package
+      yum:
+        name: httpd
+        state: present
+
+    - name: Message
+      debug:
+        msg: "Package Done"

@@ -1,0 +1,14 @@
+---
+- name: Changed_when
+  hosts: nodes
+  become: true
+  tasks:
+    - name: Uptime
+      shell: uptime
+      register: uptime_message
+      changed_when: "'Success' in uptime_message"
+
+    - name: Print message
+      debug:
+        msg: "{{ uptime_message }}"
+      failed_when: not myvariable is defined 
