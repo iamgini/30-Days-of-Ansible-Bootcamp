@@ -1,0 +1,38 @@
+- name: Enable Intranet Services
+  hosts: node1.techbeatly.com
+  become: yes
+  tasks:
+    - name: Install httpd and firewalld
+      yum:
+        name: 
+          - httpd
+          - firewalld
+        state: latest
+    - name: Enable and Run Firewalld
+      service: 
+        name: firewalld
+        enabled: true
+        state: started
+    - name: firewalld permitt httpd service
+      firewalld:
+        service: http
+        permanent: true
+        state: enabled
+        immediate: yes
+    - name: httpd enabled and running
+      service:
+        name: httpd
+        enabled: true
+        state: started
+    - name: Test html page is installed
+      copy:
+        content: "Welcome to the example.com intranet!\n"
+        dest: /var/www/html/index.html
+- name: Test intranet web server
+  hosts: localhost
+  become: no
+  tasks:
+    - name: connect to intranet webserver
+      uri: 
+        url: http://lab.techbeatly.com
+        status_code: 200
