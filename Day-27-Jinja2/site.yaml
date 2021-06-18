@@ -1,0 +1,22 @@
+- name: Using Jinja2
+  hosts: nodes
+  become: yes
+  vars:
+    system_admin_email: admin@lab.local
+    #system_admin_phone: '1800 0000 0000'
+    users:
+      - John
+      - Lisa
+      - Raj
+      - Vinod
+      - Gini
+  tasks:
+    - name: Deploy motd
+      template:
+        dest: /etc/motd
+        src: motd.j2
+    - name: Deploy user list
+      template:
+        dest: /tmp/user_list
+        src: user_list.j2
+        

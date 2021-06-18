@@ -1,0 +1,12 @@
+Welcome to {{ ansible_facts.hostname }}
+(IP Address: {{ ansible_facts.default_ipv4.address }})
+
+Access is restricted; if you are not authorized to use it 
+please logout from this system
+
+If you have any issues, please contact {{ system_admin_email }}.
+Phone: {{ system_admin_phone | default('1800 1111 2222') }}
+
+-------------------------------------
+This message is configured by Ansible
+-------------------------------------

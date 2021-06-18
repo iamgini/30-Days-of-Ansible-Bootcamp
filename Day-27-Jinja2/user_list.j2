@@ -1,0 +1,8 @@
+This is the user list deployed from Ansible
+-------------------------------------------
+{# For Statement #}
+{% for user in users %} 
+{{ loop.index }}: {{ user }}
+{% endfor %}
+-------------------------------------------
+This is end of user list.
