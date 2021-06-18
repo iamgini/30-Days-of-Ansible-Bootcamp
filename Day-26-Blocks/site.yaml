@@ -2,11 +2,25 @@
   hosts: nodes
   become: yes
   tasks:
-    - name: Install wrong package
-      yum:
-        name: wrongpackage
-        state: present
+    - block:
+        - name: Show Message
+          debug: 
+            msg: "Trying httpd"
 
-    - name: Message
-      debug:
-        msg: "Package Done"
+        - name: Install Package
+          yum:
+            name: httpd-wrong
+            state: present
+      rescue:
+        - name: Show error
+          debug:
+            msg: "Unknown Package"
+        - name: Install nginx
+          yum:
+            name: nginx
+            state: latest
+
+      always:
+        - name: Message
+          debug:
+            msg: "Playbook Done"
