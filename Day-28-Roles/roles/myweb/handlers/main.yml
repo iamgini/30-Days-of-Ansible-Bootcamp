@@ -1,0 +1,11 @@
+- name: restart firewalld
+  service: 
+    name: firewalld
+    enabled: true
+    state: restarted
+
+- name: restart webservice
+  service:
+    name: "{{ web_service }}"
+    enabled: true
+    state: restarted

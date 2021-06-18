@@ -1,0 +1,25 @@
+- name: Install httpd and firewalld
+  yum:
+    name: 
+      - "{{ web_package }}"
+      - "{{ firewall_package }}"
+    state: latest
+  notify:
+    - restart webservice
+    - restart firewalld
+
+- name: firewalld permitt httpd service
+  firewalld:
+    #service: http
+    port: 80/tcp
+    permanent: true
+    state: enabled
+    immediate: yes
+  notify:
+    - restart webservice
+    - restart firewalld
+
+- name: Test html page is installed
+  copy:
+    content: "Welcome to the example.com intranet!\n"
+    dest: /var/www/html/index.html

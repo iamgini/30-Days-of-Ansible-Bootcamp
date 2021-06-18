@@ -1,0 +1,26 @@
+- name: Enable Intranet Services
+  hosts: nodes
+  become: yes
+  vars:
+    web_package: nginx
+    web_service: nginx
+  tasks:
+    - name: remove existing package
+      yum:
+        name:
+          - httpd
+          - nginx
+        state: absent
+
+    - name: myweb role
+      include_role:
+        name: myweb
+
+- name: Test intranet web server
+  hosts: localhost
+  become: no
+  tasks:
+    - name: connect to intranet webserver
+      uri: 
+        url: http://node1
+        status_code: 200
