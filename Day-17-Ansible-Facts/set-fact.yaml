@@ -1,0 +1,25 @@
+---
+- name: Ansible Fact Demo
+  hosts: nodes
+  gather_facts: false
+  tasks:
+    - name: Set username for node2
+      set_fact:
+        ansible_user: "adminuser"
+        ansible_password: "adminpassword"
+      when: inventory_hostname == 'node2'
+
+    - name: Show host vars node2
+      debug:
+        msg: "{{ hostvars['node2'] }}"
+      when: inventory_hostname == 'node2'
+
+    - name: Show User of node2
+      shell: 'whoami;id'
+      when: inventory_hostname == 'node2'
+      register: node2_data
+
+    - name: Node2 Data
+      debug:
+        msg: "{{ node2_data }}"
+
