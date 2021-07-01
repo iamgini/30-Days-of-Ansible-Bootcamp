@@ -1,0 +1,13 @@
+---
+# tasks file for rhel-patching-post-tasks
+
+- name: Running RHEL Post-Upgrade
+  debug:
+    msg: "Verification in Progress"
+
+# follow post verification tasks; 
+# if error call snapshot restore tasks.
+
+- name: Comparing backed files
+  debug:
+    msg: "Checking file integrity against backup files"

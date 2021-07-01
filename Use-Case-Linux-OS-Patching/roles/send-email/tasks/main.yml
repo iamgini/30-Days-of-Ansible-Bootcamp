@@ -1,0 +1,21 @@
+---
+# tasks file for send-email
+- name: Sending notification email
+  mail:
+    host: "{{ email_smtp_server }}"
+    port: "{{ email_smtp_server_port }}"
+    username: "{{ email_smtp_username }}"
+    password: "{{ email_smtp_password }}"
+    #secure: always
+    from: "{{ email_smtp_from_address }}"
+    to: "{{ email_smtp_to_address }}"
+    cc: "{{ email_smtp_cc_address }}"
+    subject: "{{ email_subject }} - {{ ansible_hostname }}"
+    #body: "{{ email_report }}"
+    #attach:
+    #  - "{{ report_file_name }}"
+    headers:
+      - Reply-To="{{ email_smtp_replyto_address }}"
+  delegate_to: localhost
+  run_once: yes
+  

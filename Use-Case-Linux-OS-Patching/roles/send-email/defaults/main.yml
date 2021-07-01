@@ -1,0 +1,14 @@
+---
+# defaults file for send-email
+email_smtp_server: 'smtp.lab.local'
+email_smtp_server_port: '587'
+email_smtp_username: 'username'
+email_smtp_password: 'password'
+email_smtp_from_address: 'ansible@lab.local (Ansible Automation)'
+#email_smtp_to_address:
+#      - 'John Doe <john@lab.local>'
+#      - 'Linda <linda@lab.local>'
+#email_smtp_cc_address:
+#      - 'John Doe <john@gmail.com>'
+email_smtp_replyto_address: 'no-reply@lab.local'
+email_smtp_subject: "Ansible Email Demo"        
