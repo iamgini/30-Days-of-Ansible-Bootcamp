@@ -1,9 +1,0 @@
----
-# tasks file for test-role
-- debug:
-    msg: "{{ service }}"
-    
-- name: Using Dict from Main playbook
-  debug:
-    msg: "Service Name: {{ service.name }}, Service Port: {{ service.port }}"
-  with_items: "{{ service }}"
