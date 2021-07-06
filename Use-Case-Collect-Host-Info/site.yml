@@ -1,0 +1,18 @@
+---
+- name: Collect the Uptime of hosts in CSV Format
+  hosts: "{{ hostlist }}"
+  tasks:
+    - name: Check hosts uptime
+      shell: 'uptime'
+      register: shell_output
+
+    - name: Display Uptime
+      debug:
+        msg: "{{ hostvars[inventory_hostname]['shell_output']['start'] }}"
+
+    - name: Generate Report
+      template:
+        src: hosts.j2
+        dest: /tmp/host_report.csv
+      delegate_to: localhost
+      run_once: yes

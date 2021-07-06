@@ -1,0 +1,9 @@
+[nodes]
+node1 
+node2 
+
+[newnodes]
+node1
+
+[myself]
+localhost ansible_connection=local

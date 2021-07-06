@@ -1,0 +1,4 @@
+SNo., Start, Hostname
+{% for hostnode in ansible_play_hosts %}
+{{ loop.index }},{{ hostvars[hostnode]['shell_output']['start'] }},{{ hostnode }}
+{% endfor %}

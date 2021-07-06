@@ -1,0 +1,29 @@
+---
+- name: Calling Role with Dict Variable
+  hosts: "{{ hostlist }}"
+  gather_facts: false
+  vars:
+    service_list:
+      tomcat:
+        name: tomcat
+        port: 8080
+      nexus:
+        name: nexus
+        port: 8282
+  tasks:
+    - debug:
+        msg: "{{ service_item.value }}"
+      loop: "{{ lookup('dict', service_list) }}"
+      
+      loop_control:
+        loop_var: service_item
+
+    - name: "Calling Start Service Role"
+      include_role:
+        name: test-role
+      vars:
+        service: "{{ service_item }}"
+      #with_items: "{{ service_list }}"
+      loop: "{{ lookup('dict', service_list) }}"
+      loop_control:
+        loop_var: service_item
