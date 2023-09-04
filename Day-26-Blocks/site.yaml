@@ -2,6 +2,15 @@
   hosts: nodes
   become: yes
   tasks:
+    - name: Say hello
+      debug:
+        msg: "Hello"
+
+    - name: Install some packages
+      yum:
+        name: nginx
+        state: present
+        
     - block:
         - name: Show Message
           debug: 
