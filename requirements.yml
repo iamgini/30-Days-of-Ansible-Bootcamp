@@ -1,0 +1,16 @@
+---
+# Ansible Collections Requirements
+# Install with: ansible-galaxy collection install -r requirements.yml
+
+collections:
+  # Required for firewalld module used in multiple playbooks
+  - name: ansible.posix
+    version: ">=1.5.0"
+    source: https://galaxy.ansible.com
+
+  # Recommended for general-purpose modules and utilities
+  - name: community.general
+    version: ">=8.0.0"
+    source: https://galaxy.ansible.com
+
+# Note: ansible.builtin is included with Ansible Core and doesn't need to be installed separately

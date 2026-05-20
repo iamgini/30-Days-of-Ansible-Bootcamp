@@ -1,0 +1,64 @@
+---
+# Ansible Lint Configuration
+# This repository is for learning, so we balance strict rules with readability
+
+# Exclude paths
+exclude_paths:
+  - .github/
+  - .git/
+  - .cache/
+  - z_In_Prog/  # Work in progress directory
+  - venv/
+  - '*.swp'
+  - '*.bak'
+
+# Enable specific rule sets
+enable_list:
+  - yaml  # YAML syntax and formatting
+  - name  # Task naming conventions
+  - fqcn  # Fully Qualified Collection Names (we migrated to FQCN!)
+
+# Skip specific rules for educational content
+skip_list:
+  - yaml[line-length]  # Allow longer lines for readability in examples
+  - yaml[comments]  # Allow flexible comment formatting
+  - name[casing]  # Allow flexible task name casing for teaching
+  - no-changed-when  # Educational examples may not always need changed_when
+  - no-handler  # Allow simple examples without handlers
+  - var-naming[no-role-prefix]  # Educational variables don't need role prefixes
+  - risky-file-permissions  # Educational examples can show basic usage first
+  - command-instead-of-module  # Sometimes we show command module for teaching
+  - command-instead-of-shell  # Sometimes we need to demonstrate shell vs command
+
+# Warn but don't fail on these
+warn_list:
+  - experimental  # Warn about experimental features
+  - ignore-errors  # Warn when using ignore_errors
+  - no-jinja-when  # Warn about Jinja in when statements
+  - deprecated-module  # Warn about deprecated modules
+
+# Enforce these strictly
+strict:
+  - fqcn[action-core]  # Require FQCN (we already migrated!)
+  - syntax-check  # Always check syntax
+
+# Task name requirements
+task_name_prefix: "{stem} | "  # Optional task name prefix
+
+# Enable offline mode (don't download rules)
+offline: false
+
+# Use YAML parser that matches Ansible
+parseable: true
+
+# Show progress
+progressive: false
+
+# Verbosity level (0-2)
+verbosity: 1
+
+# Write output format (rich, plain, json)
+format: auto
+
+# Only check changed files (useful for CI)
+# progressive: true

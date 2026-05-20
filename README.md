@@ -220,13 +220,18 @@ sudo dnf install ansible
 pip3 install ansible
 ```
 
-### 3. Set Up Lab (Optional)
+### 3. Install Required Collections
+```bash
+ansible-galaxy collection install -r requirements.yml
+```
+
+### 4. Set Up Lab (Optional)
 ```bash
 cd Day-04-Create-Ansible-Lab-using-Vagrant-and-VirtualBox/
 vagrant up
 ```
 
-### 4. Start Learning
+### 5. Start Learning
 ```bash
 cd Day-01-Introduction-to-Ansible/
 cat README.md

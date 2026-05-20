@@ -9,7 +9,10 @@
       "Bash(/tmp/syntax_check.sh)",
       "Bash(chmod +x /tmp/check_playbooks_only.sh)",
       "Bash(/tmp/check_playbooks_only.sh)",
-      "Bash(git check-ignore *)"
+      "Bash(git check-ignore *)",
+      "Bash(xargs ls -lh)",
+      "Read(//tmp/**)",
+      "Bash(ansible-lint --version)"
     ]
   }
 }
