@@ -1,0 +1,26 @@
+name: Downstream Pipeline
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+
+jobs:
+  scan:
+    uses: iamgini/ansible-pipeline-templates/.github/workflows/scan-pipeline.yml@main
+    secrets: inherit
+    with:
+      run_secret_detection: true
+      run_lint: true
+      run_sast: true
+      run_tagging: false
+      run_sign: false
+
+  publish:
+    needs: scan
+    if: github.ref == 'refs/heads/main'
+    uses: iamgini/ansible-pipeline-templates/.github/workflows/publish-pipeline.yml@main
+    secrets: inherit
+    with:
+      publish_to_galaxy: true

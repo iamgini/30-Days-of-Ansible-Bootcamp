@@ -1,0 +1,68 @@
+# Ansible
+*.retry
+.vault-pass*
+*.vault-password
+vault-pass.txt
+.vault_pass
+
+# Vagrant
+.vagrant/
+*.box
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.bak
+.project
+.settings/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Ansible specific
+*.log
+.ansible/
+ansible.log
+*.tmp
+
+# Test and development
+.tox/
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# Documentation builds
+_build/
+docs/_build/
+
+# IDE
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files
+*.temp
+*.bkp

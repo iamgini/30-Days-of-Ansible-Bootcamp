@@ -8,7 +8,8 @@
       "Bash(chmod +x /tmp/syntax_check.sh)",
       "Bash(/tmp/syntax_check.sh)",
       "Bash(chmod +x /tmp/check_playbooks_only.sh)",
-      "Bash(/tmp/check_playbooks_only.sh)"
+      "Bash(/tmp/check_playbooks_only.sh)",
+      "Bash(git check-ignore *)"
     ]
   }
 }
