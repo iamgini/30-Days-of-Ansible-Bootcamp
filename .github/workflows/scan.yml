@@ -17,10 +17,10 @@ jobs:
       run_tagging: false
       run_sign: false
 
-  publish:
-    needs: scan
-    if: github.ref == 'refs/heads/main'
-    uses: iamgini/ansible-pipeline-templates/.github/workflows/publish-pipeline.yml@main
-    secrets: inherit
-    with:
-      publish_to_galaxy: true
+  # publish:
+  #   needs: scan
+  #   if: github.ref == 'refs/heads/main'
+  #   uses: iamgini/ansible-pipeline-templates/.github/workflows/publish-pipeline.yml@main
+  #   secrets: inherit
+  #   with:
+  #     publish_to_galaxy: true
