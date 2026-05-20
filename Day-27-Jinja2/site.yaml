@@ -12,11 +12,11 @@
       - Gini
   tasks:
     - name: Deploy motd
-      template:
+      ansible.builtin.template:
         dest: /etc/motd
         src: motd.j2
     - name: Deploy user list
-      template:
+      ansible.builtin.template:
         dest: /tmp/user_list
         src: user_list.j2
         

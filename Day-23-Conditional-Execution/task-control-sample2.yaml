@@ -8,12 +8,12 @@
     comment: "Install SFTP Server"
   tasks:
     - name: Ensure FTP Installed
-      debug:
+      ansible.builtin.debug:
         msg: "Installing FTP Server....."
       when: (ftp_word in comment) or (ftp_word | lower in comment)
 
     - name: Ensure SFTP Installed
-      debug:
+      ansible.builtin.debug:
         msg: "Installing SFTP Server....."
       when: (sftp_word in comment) or (sftp_word | lower in comment)
 

@@ -6,5 +6,5 @@
     - user_list.yaml 
   tasks:
     - name: Show users
-      debug:
+      ansible.builtin.debug:
         msg: "{{ users }}"

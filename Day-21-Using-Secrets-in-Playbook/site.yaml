@@ -6,6 +6,6 @@
     - user-passwd.yaml
   tasks:
     - name: Create User
-      user:
+      ansible.builtin.user:
         name: "{{ username }}"
         password: "{{ passwd | password_hash('sha256') }}"

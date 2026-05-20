@@ -7,12 +7,12 @@
     #- set_fact:
     #    Company: "{{ Company }}"
     - name: Print Data
-      debug:
+      ansible.builtin.debug:
         msg: "{{ Company }}"
       when: a is defined
     
     - name: Print Data 2
-      debug:
+      ansible.builtin.debug:
         #msg: "{{ Company['Country']['states'][0]['employee'][] }}"
         #msg: "{{ item }}" #"hello" #
         msg: "{{ Company['Country']['states'][0]['employee'][item]['payroll_emp']['id'] }}" #"hello" #
@@ -20,7 +20,7 @@
       with_items: "{{ Company | json_query('Country.states[0].employee')  }}"
 
     - name: Set Data
-      set_fact:
+      ansible.builtin.set_fact:
         #msg: "{{ Company['Country']['states'][0]['employee'][] }}"
         #msg: "{{ item }}" #"hello" #
         #Company['Country']['states'][0]['employee'][{{ item }}]['payroll_emp']['id']: 2000
@@ -37,7 +37,7 @@
       #with_items: "{{ Company | json_query('Country.states[0].employee')  }}"
 
     - name: Print Data
-      debug:
+      ansible.builtin.debug:
         msg: "{{ Company }}"
       #when: a is defined
 

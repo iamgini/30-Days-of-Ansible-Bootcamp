@@ -19,7 +19,7 @@
         loop_var: service_item
 
     - name: "Calling Start Service Role"
-      include_role:
+      ansible.builtin.include_role:
         name: test-role
       vars:
         service: "{{ service_item }}"

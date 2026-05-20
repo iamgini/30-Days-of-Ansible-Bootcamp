@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat)",
+      "Bash(chmod +x /tmp/find_modules.sh)",
+      "Bash(/tmp/find_modules.sh)",
+      "Bash(python3 /tmp/migrate_to_fqcn.py)",
+      "Bash(chmod +x /tmp/syntax_check.sh)",
+      "Bash(/tmp/syntax_check.sh)",
+      "Bash(chmod +x /tmp/check_playbooks_only.sh)",
+      "Bash(/tmp/check_playbooks_only.sh)"
+    ]
+  }
+}

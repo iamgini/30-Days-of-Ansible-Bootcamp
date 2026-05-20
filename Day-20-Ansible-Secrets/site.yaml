@@ -4,12 +4,12 @@
   gather_facts: false
   tasks:
     - name: Show Inventory Host Name
-      debug:
+      ansible.builtin.debug:
         msg: "{{ inventory_hostname }}"
     - name: Show Group
-      debug:
+      ansible.builtin.debug:
         msg: "{{ group_names }}"
 
     - name: Show Host Variable
-      debug:
+      ansible.builtin.debug:
         msg: "{{ hostvars }}"

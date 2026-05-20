@@ -6,14 +6,14 @@
     web_service: nginx
   tasks:
     - name: remove existing package
-      yum:
+      ansible.builtin.yum:
         name:
           - httpd
           - nginx
         state: absent
 
     - name: myweb role
-      include_role:
+      ansible.builtin.include_role:
         name: myweb
 
 - name: Test intranet web server
@@ -21,6 +21,6 @@
   become: no
   tasks:
     - name: connect to intranet webserver
-      uri: 
+      ansible.builtin.uri: 
         url: http://node1
         status_code: 200

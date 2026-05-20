@@ -7,11 +7,11 @@
       register: shell_output
 
     - name: Display Uptime
-      debug:
+      ansible.builtin.debug:
         msg: "{{ hostvars[inventory_hostname]['shell_output']['start'] }}"
 
     - name: Generate Report
-      template:
+      ansible.builtin.template:
         src: hosts.j2
         dest: /tmp/host_report.csv
       delegate_to: localhost

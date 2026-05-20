@@ -3,29 +3,29 @@
   become: yes
   tasks:
     - name: Install httpd and firewalld
-      yum:
+      ansible.builtin.yum:
         name: 
           - httpd
           - firewalld
         state: latest
     - name: Enable and Run Firewalld
-      service: 
+      ansible.builtin.service: 
         name: firewalld
         enabled: true
         state: started
     - name: firewalld permitt httpd service
-      firewalld:
+      ansible.posix.firewalld:
         service: http
         permanent: true
         state: enabled
         immediate: yes
     - name: httpd enabled and running
-      service:
+      ansible.builtin.service:
         name: httpd
         enabled: true
         state: started
     - name: Test html page is installed
-      copy:
+      ansible.builtin.copy:
         content: "Welcome to the example.com intranet!\n"
         dest: /var/www/html/index.html
 - name: Test intranet web server
@@ -33,7 +33,7 @@
   become: no
   tasks:
     - name: connect to intranet webserver
-      uri: 
+      ansible.builtin.uri: 
         url: "http://{{ item }}"
         status_code: 200
       with_items:

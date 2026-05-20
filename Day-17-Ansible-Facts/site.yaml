@@ -4,7 +4,7 @@
   gather_facts: false
   tasks:
     - name: collect facts
-      setup:
+      ansible.builtin.setup:
     - name: Show details
-      debug:
+      ansible.builtin.debug:
         msg: "{{ ansible_distribution }} {{ ansible_hostname }} {{ ansible_default_ipv4['address'] }}"

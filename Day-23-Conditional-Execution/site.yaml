@@ -16,12 +16,12 @@
   tasks:
 
     - name: Create users
-      user:
+      ansible.builtin.user:
         name: "{{ item }}"
       with_list: "{{ userlist }}"
 
     - name: Install Packages
-      yum:
+      ansible.builtin.yum:
         name: 
           - httpd
           - firewalld
@@ -32,7 +32,7 @@
         - min_memory is defined 
 
     - name: Enable Service
-      service:
+      ansible.builtin.service:
         name: "{{ item }}"
         state: started
         enabled: true

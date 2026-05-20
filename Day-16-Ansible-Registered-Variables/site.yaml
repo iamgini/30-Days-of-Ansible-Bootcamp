@@ -4,17 +4,17 @@
   become: true
   tasks:
     - name: Install nginx
-      yum:
+      ansible.builtin.yum:
         name: nginx
         state: latest
       register: yum_output
       ignore_errors: yes
 
     - name: Print the output
-      debug:
+      ansible.builtin.debug:
         msg: "{{ yum_output }}"
 
     - name: Print if Failed
-      debug:
+      ansible.builtin.debug:
         msg: "Package Failed To Install"
       when: yum_output.failed == true

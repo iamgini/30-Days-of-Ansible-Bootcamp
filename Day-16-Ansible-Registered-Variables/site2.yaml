@@ -8,5 +8,5 @@
       register: shell_output
 
     - name: Print the output
-      debug:
+      ansible.builtin.debug:
         msg: "{{ shell_output.stdout_lines }}"

@@ -6,6 +6,6 @@
     - vars2.yaml 
   tasks:
     - name: Show users
-      debug:
+      ansible.builtin.debug:
         msg: "{{ item.value }}"
       with_items: "{{ users }}"

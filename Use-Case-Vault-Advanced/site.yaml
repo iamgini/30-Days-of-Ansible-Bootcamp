@@ -6,5 +6,5 @@
     - secret-vars.yaml
   tasks:
     - name: Show Message
-      debug:
+      ansible.builtin.debug:
         msg: "{{ secret_token }}"

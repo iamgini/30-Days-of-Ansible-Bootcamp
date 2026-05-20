@@ -9,23 +9,23 @@
       - user103
   tasks:
     - name: Show users
-      debug:
+      ansible.builtin.debug:
         msg: "{{ item }}"
       with_list: "{{ userlist }}"
 
     - name: Create users
-      user:
+      ansible.builtin.user:
         name: "{{ item }}"
       with_list: "{{ userlist }}"
 
     - name: Install Packages
-      yum:
+      ansible.builtin.yum:
         name: 
           - httpd
           - firewalld
         state: present
     - name: Enable Service
-      service:
+      ansible.builtin.service:
         name: "{{ item }}"
         state: started
         enabled: true

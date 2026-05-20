@@ -5,30 +5,30 @@
   tasks:
 
     - name: Install {{ web_package }} & {{ firewall_package }}
-      yum:
+      ansible.builtin.yum:
         name: 
           - "{{ web_package }}"
           - "{{ firewall_package }}"
         state: latest
     - name: Enable and Start {{ web_service }}
-      service:
+      ansible.builtin.service:
         name: "{{ web_service }}"
         enabled: true
         state: started
     - name: Enable and Start {{ firewall_service }}
-      service:
+      ansible.builtin.service:
         name: "{{ firewall_service }}"
         enabled: true
         state: started
 
     - name: Open firewall ports
-      firewalld:
+      ansible.posix.firewalld:
         service: http
         permanent: true
         state: enabled
         immediate: yes
     - name: Copy html content
-      copy:
+      ansible.builtin.copy:
         content: "Welcome to our website <br>(This is deployed using Ansible)"
         dest: /var/www/html/index.html
 
@@ -37,7 +37,7 @@
   become: no
   tasks:
     - name: Connect to the webserver
-      uri:
+      ansible.builtin.uri:
         url: http://node2
         status_code: 200
 

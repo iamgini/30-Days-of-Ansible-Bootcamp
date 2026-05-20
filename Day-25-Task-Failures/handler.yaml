@@ -4,7 +4,7 @@
   force_handlers: yes
   tasks:
     - name: Install httpd and firewalld
-      yum:
+      ansible.builtin.yum:
         name: 
           - httpd
           - firewalld
@@ -13,26 +13,26 @@
         - restart httpd
 
     - name: Enable and Run Firewalld
-      service: 
+      ansible.builtin.service: 
         name: firewalld-wrong
         enabled: true
         state: started
     - name: firewalld permitt httpd service
-      firewalld:
+      ansible.posix.firewalld:
         service: http
         permanent: true
         state: enabled
         immediate: yes
 
     - name: Test html page is installed
-      copy:
+      ansible.builtin.copy:
         content: "Welcome to the example.com intranet!\n"
         dest: /var/www/html/index.html
       notify: restart httpd
 
   handlers:
     - name: restart httpd
-      service:
+      ansible.builtin.service:
         name: httpd
         enabled: true
         state: restarted
@@ -42,6 +42,6 @@
   become: no
   tasks:
     - name: connect to intranet webserver
-      uri: 
+      ansible.builtin.uri: 
         url: http://node1.techbeatly.com
         status_code: 200

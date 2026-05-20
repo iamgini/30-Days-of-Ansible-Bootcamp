@@ -3,33 +3,33 @@
   become: yes
   tasks:
     - name: Say hello
-      debug:
+      ansible.builtin.debug:
         msg: "Hello"
 
     - name: Install some packages
-      yum:
+      ansible.builtin.yum:
         name: nginx
         state: present
         
     - block:
         - name: Show Message
-          debug: 
+          ansible.builtin.debug: 
             msg: "Trying httpd"
 
         - name: Install Package
-          yum:
+          ansible.builtin.yum:
             name: httpd-wrong
             state: present
       rescue:
         - name: Show error
-          debug:
+          ansible.builtin.debug:
             msg: "Unknown Package"
         - name: Install nginx
-          yum:
+          ansible.builtin.yum:
             name: nginx
             state: latest
 
       always:
         - name: Message
-          debug:
+          ansible.builtin.debug:
             msg: "Playbook Done"
